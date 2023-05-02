@@ -10,11 +10,11 @@ function calculate() {
     const currency_one = currencyEl_one.value;
     const currency_two = currencyEl_two.value;
 
-    fetch('https://open.exchangerate-api.com/v6/latest/');
+    fetch('https://open.exchangerate-api.com/v6/latest');
         .then(res => res.json())
         .then(data => {
             // console.log(data);
-            const rate = data.rates[currency_two];
+            const rate = data.rates[currency_two] / data.rates[currency_one];
 
             rateEl.innerText = `1 ${currency_one} = ${rate} ${currency_two}`;
 
@@ -33,6 +33,6 @@ swap.addEventListener('click', () => {
     currencyEl_one.value = currencyEl_two.value;
     currencyEl_two.value = temp;
     calculate();
-})
+});
 
 calculate();
