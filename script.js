@@ -9,7 +9,7 @@ const swap = document.getElementById('swap');
 function calculate() {
     const currency_one = currencyEl_one.value;
     const currency_two = currencyEl_two.value;
-    fetch("https://open.exchangerate-api.com/v6/latest");
+    fetch("https://open.exchangerate-api.com/v6/latest")
         .then(res => res.json())
         .then(data => {
             // console.log(data);
